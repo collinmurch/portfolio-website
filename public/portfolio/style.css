@@ -1,0 +1,199 @@
+body {
+    background: black;
+}
+
+a {
+    color: white;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+    text-decoration: none;
+}
+
+a:after {
+    content: "";
+    height: 1px;
+    background: white;
+    position: absolute;
+    pointer-events: none;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: scale(0, 1);
+    transition: all 200ms;
+}
+
+a:hover:after {
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
+.container {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, 
+        Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    animation: fadein 2s;
+}
+
+.background {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+}
+
+.introduction {
+    position: absolute;
+    top: 25%;
+    transform: translateX(+50%);
+    width: 50%;
+}
+
+.logo_container {
+    text-align: center;
+    top: 10%;
+    margin: 0 auto;
+}
+
+.logo_image {
+    position: relative;
+    width: 30%;
+    height: 30%;
+    pointer-events: all;
+}
+
+.name {
+    width: 14vw;
+    text-align: center;
+    margin: 1px auto;
+    font-size: 1.75vw;
+    font-weight: 650;
+    letter-spacing: 0.25vw;
+    color: white;
+    text-shadow: 1px 1px darkgray;
+}
+
+.name p {
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: .10em solid white;
+    margin: 0 auto;
+    animation:
+        1s 2s type steps(12, end) both,
+        1s 0s blink step-end infinite;
+    pointer-events: all;
+}
+
+.about {
+    margin-top: 2vw;
+    text-align: center;
+    font-size: 1.5vw;
+    font-weight: 600;
+}
+
+.about p {
+    pointer-events: all;
+}
+
+.footer {
+    color: white;
+    bottom: 20px;
+    font-size: 12px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer a {
+    color: white;
+    margin: 0;
+    transition: all 200ms;
+    pointer-events: all;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+.left {
+    display: inline-block;
+    margin-left: 0;
+    margin-right: 30px;
+}
+
+.right {
+    display: inline-block;
+}
+
+.right a {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+#passthrough {
+    pointer-events: none;
+}
+
+#particles-js {
+    z-index: 0;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    animation: fadein 7s 2s forwards;
+}
+
+@media only screen and (orientation: portrait) {
+    .background {
+        height: 100%;
+        width: auto;
+    }
+
+    .logo {
+        height: 50%;
+        width: 50%;
+    }
+
+    .introduction {
+        width: 100%;
+        height: 50%;
+        transform: translateX(0%);
+    }
+
+    .name {
+        width: 22vw;
+        margin: 1px auto;
+        font-size: 3vw;
+    }
+
+    .about {
+        font-size: 2vw;
+    }
+}
+
+@keyframes type {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: white; }
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
