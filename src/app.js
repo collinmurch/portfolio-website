@@ -19,7 +19,7 @@ const options = {
 };
 
 function ensureSecure(req, res, next) { 
-    if(req.secure) {
+    if (req.secure) {
         return next();
     } 
     res.redirect('https://' + req.headers.host)
@@ -29,7 +29,17 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname+'/../public/portfolio/index.html'));
 });
 
-app.get('/health-check', (req, res) => {res.sendStatus(200)});
+app.get('/health-check', (req, res) => {
+    res.sendStatus(200)
+});
+
+app.get('/ping', (req, res) => {
+    res.sendFile(path.join(__dirname+'/../public/ping.html'));
+});
+
+app.get('*', (req, res) => {
+    res.redirect('/');
+});
 
 app.listen(port, () => console.log(`App listening on port ${port}.`));
 https.createServer(options, app).listen(sport, () => console.log(`Secure app is listening on port ${sport}.`));
