@@ -16,15 +16,9 @@
 	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
-
-	<!-- <script src="/portfolio/particles.min.js"></script>
-	<script>
-		particlesJS.load('particles-js', '/portfolio/particlesjs-config.json');
-	</script> -->
 </head>
 
 <body>
-	<div id="particles-js"></div>
 	<div class="container" id="passthrough">
 		<img src="/portfolio/background.jpg" class="background">
 
@@ -41,9 +35,11 @@
 		</div>
 
 		<div class="footer">
-			<div class="left">
-				2021 — <a href="mailto:collin@murch.net">collin@murch.net</a>
+			<div class="left" id="year">
 			</div>
+			<script>
+				document.getElementById("year").innerHTML = new Date().getFullYear() + ' — <a href="mailto:collin@murch.net">collin@murch.net</a>';
+			</script>
 			
 			<div class="right">
 				<a href="https://github.com/collinmurch" target="_blank">GITHUB</a>
